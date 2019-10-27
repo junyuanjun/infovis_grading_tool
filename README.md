@@ -4,25 +4,26 @@ This is a tool for showing all the student submission in one page.
 
 For those submissions you want to further check, you can click the link on top of the mini view and then you will be led to a new page of this submission.
 
-##Usage
-
-To use this tool, you should first download all the submissions to this project. There is an option of `Download All ` on the course page when viewing submissions. 
-
-In practice, you should unzip the submission package. And then rename the unzipped folder as `raw_submission` and put it in this project. There is already a folder with the name of "raw_submission" just for demo. When you need to grade the new  assignment, just replace the existing "raw_submission" folder with the folder of submissions you want to check.
-
-Now you need to run `preporsssing.py` which will create a new folder call `to_view` with all the student submissions and the data files as well as d3 library. In this folder, all the student submissions will be renamed in the form of `[netid]_index.html`. To run the python code, you can run the following command line:
+## Demo
+First, you need to run `preporsssing.py` which will create a new folder call `to_view` with all the student submissions in the `raw_submission` folder and the data files (`routes.csv` and `contries.geo.json`) as well as d3 library. In the `to_view` folder, all the student submissions will be renamed in the form of `[netid]_index.html`. To run the python code, you can run the following command line:
 
 ```console
 $ python3 preprocessing.py
 ```
 
-In the end, run a loacal server at the position of this project. For example, you can run the following command line:
+Then you need to run a local server at the position of this project. For example, you can run the following command line:
 
 ```console
 $ python3 -m http.server
 ```
 
-And then open the link of [localhost: 8000](http://0.0.0.0:8000/) to view all the submissions.
+And then open the link of [localhost: 8000](http://0.0.0.0:8000/) to view all the submissions. With the data of demo submissions in the `raw_submission` folder, you can see the page as shown below:
+![](https://user-images.githubusercontent.com/9759891/67642710-f2b9b700-f8e4-11e9-9c33-4a86d807e99a.png)
+
+## Load lab submissions
+To use this tool for grading lab submissions, you should first download all the submissions of the the lab to be graded. There is an option of `Download All ` on the course page when viewing assignment submissions. 
+
+In practice, you should unzip the downloaded package. And then rename the unzipped folder as `raw_submission` and put it in this project. There is already a folder with the name of "raw_submission" just for demo. You can replace the existing "raw_submission" with the upzipped folder of submissions you want to check.
 
 ## Grading Principle
 
