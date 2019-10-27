@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <style>
+       .center-h {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+       }
+
+       .center-v {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+       }
+
+       h3 {
+          margin-bottom: 2px;
+       }
+
+      .block { width: 500px; height: 300px; padding-top: 150px; overflow: hidden; }
+      iframe { width: 1000px; height: 600px; border: 1px solid black; }
+      iframe {
+          -ms-zoom: 0.45;
+          -moz-transform: scale(0.45);
+          -moz-transform-origin: 0 0;
+          -o-transform: scale(0.45);
+          -o-transform-origin: 0 0;
+          -webkit-transform: scale(0.45);
+          -webkit-transform-origin: 0 0;
+      }
+
+    </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+    <div id="submission" class='.center-v'>
+       
+    </div>
+</body>
+
+<script>
+    let folder = 'to_view';
+    let column_num = 3;
+
+    let view = d3.select('#submission');
+
+    d3.json("./to_view/ids.json").then(data => {
+        let ids = data['ids'];
+
+        let row = null;
+        ids.forEach((id, index) => {
+          if (index%column_num === 0) {
+              row = view.append('div')
+                .attr('class', 'center-h');
+          }
+          let block= row.append('div')
+            .attr('class', 'center-v block')
+            .append('div')
+          block.append('h3')
+            .text(id);
+          block.append('iframe')
+            .attr('id', id)
+            .attr('src', './to_view/'+id+'_index.html');
+          });
+    });
+    
+</script>
+</html>
