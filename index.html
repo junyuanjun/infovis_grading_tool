@@ -58,7 +58,10 @@
           let block= row.append('div')
             .attr('class', 'center-v block')
             .append('div')
-          block.append('h3')
+          let title = block.append('a')
+            .attr('href', './to_view/'+id+'_index.html')
+            .attr("target", "_blank");
+          title.append('h3')
             .text(id);
           block.append('iframe')
             .attr('id', id)
